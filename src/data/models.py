@@ -156,10 +156,7 @@ class FujifilmExif(models.Model):
 
     @classmethod
     def get_or_create(cls, **fields) -> "FujifilmExif":
-        try:
-            obj, _ = cls.objects.get_or_create(**fields)  # type: ignore[attr-defined]
-        except cls.MultipleObjectsReturned:
-            obj = cls.objects.filter(**fields).first()
+        obj, _ = cls.objects.get_or_create(**fields)  # type: ignore[attr-defined]
         return obj
 
     # Properties
